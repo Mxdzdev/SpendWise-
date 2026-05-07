@@ -57,6 +57,12 @@
   color: #000;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-family);
   background-color: var(--bg-primary);
@@ -83,11 +89,16 @@ a {
 .app-container {
   display: flex;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .main-content {
   flex: 1;
   padding: 2rem;
+  width: 100%;
+  min-width: 0;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -278,6 +289,86 @@ select.input-field option {
   transform: scale(0.98);
 }
 
+/* Dashboard Header & Layout Utilities */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  min-height: 60px;
+}
+
+.dashboard-logo-container {
+  width: 42px;
+  height: 42px;
+}
+
+.dashboard-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--accent-primary);
+}
+
+.dashboard-title-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 2.25rem;
+}
+
+.dashboard-ref {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.h-screen-layout {
+  height: calc(100vh - 4rem);
+}
+
+.panel-card {
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-panel-card {
+  height: 100%;
+  padding: 0;
+  background-color: var(--bg-primary);
+}
+
+/* Investments Page Layout Utilities */
+.page-header-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-value {
+  font-size: 3.5rem;
+}
+
+.chat-options {
+  margin-left: 2.75rem;
+}
+
+.transaction-actions {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+}
+
 /* Dashboard Grid */
 .dashboard-grid {
   display: grid;
@@ -439,11 +530,29 @@ select.input-field option {
 .font-bold { font-weight: 700; }
 .mb-4 { margin-bottom: 1rem; }
 .mt-4 { margin-top: 1rem; }
+
+/* Flexbox Utilities */
 .flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* Alignment Utilities */
 .items-center { align-items: center; }
+.items-start { align-items: flex-start; }
 .justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+
+/* Spacing Utilities */
 .gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
 .gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+/* Sizing Utilities */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -458,6 +567,27 @@ select.input-field option {
 
   .page-title {
     font-size: 1.5rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .dashboard-title-container {
+    position: static;
+    transform: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dashboard-title {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-logo-container {
+    display: none;
   }
 
   /* Transform Sidebar into Bottom Navigation */
@@ -540,6 +670,33 @@ select.input-field option {
 
   .col-span-12, .col-span-8, .col-span-6, .col-span-4, .col-span-3 {
     grid-column: span 12;
+    width: 100%;
+  }
+
+  /* Transações e Chats */
+  .h-screen-layout {
+    height: auto !important;
+  }
+  
+  .panel-card {
+    height: 400px !important;
+    overflow-y: auto !important;
+  }
+
+  .chat-panel-card {
+    height: 500px !important;
+  }
+
+  /* Adjustments for Investments on Mobile */
+  .hero-value {
+    font-size: 2.25rem !important;
+  }
+
+  .chat-options {
+    margin-left: 0; /* Align buttons directly below on very small screens */
+  }
+
+  .mobile-full-btn {
     width: 100%;
   }
 

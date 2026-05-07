@@ -101,12 +101,12 @@ export default function Investments() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-8 page-header-flex">
         <div className="flex items-center gap-3">
           <Landmark className="text-accent-primary" size={32} />
           <h1 className="page-title" style={{ marginBottom: 0 }}>Carteira de Investimentos</h1>
         </div>
-        <button onClick={handleOpenModal} className="btn btn-primary">
+        <button onClick={handleOpenModal} className="btn btn-primary mobile-full-btn">
           <PlusCircle size={20} /> Novo Investimento
         </button>
       </div>
@@ -119,14 +119,14 @@ export default function Investments() {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div className="flex justify-between items-center relative z-10">
+        <div className="flex justify-between items-center relative z-10 hero-flex">
           <div>
             <h3 style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', fontWeight: 500, marginBottom: '0.5rem' }}>Patrimônio Total Investido</h3>
-            <p className="value" style={{ fontSize: '3.5rem', color: 'var(--accent-primary)', fontWeight: 800, letterSpacing: '-1px' }}>
+            <p className="value hero-value" style={{ color: 'var(--accent-primary)', fontWeight: 800, letterSpacing: '-1px' }}>
               {formatCurrency(total)}
             </p>
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-end hero-icon-container">
             <div style={{ backgroundColor: 'rgba(0,230,118,0.1)', color: 'var(--accent-primary)', padding: '1rem', borderRadius: '1rem' }}>
               <TrendingUp size={48} />
             </div>
@@ -165,7 +165,7 @@ export default function Investments() {
 
               {/* Opções / Respostas do Usuário (Botões) */}
               {adviceStep === 1 && (
-                <div className="flex flex-wrap gap-2 ml-11">
+                <div className="flex flex-wrap gap-2 chat-options">
                   {[5, 10, 20, 50].map(p => (
                     <button 
                       key={p} 
@@ -203,7 +203,7 @@ export default function Investments() {
                   </div>
 
                   {adviceStep === 2 && (
-                    <div className="flex flex-wrap gap-2 ml-11">
+                    <div className="flex flex-wrap gap-2 chat-options">
                       {tiposDisponiveis.map(t => (
                         <button 
                           key={t} 
@@ -297,7 +297,7 @@ export default function Investments() {
                         <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>{inv.tipo} • Aporte em {formatDate(inv.data)}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-4 transaction-actions">
                       <span className="transaction-amount" style={{ color: 'var(--accent-primary)', fontSize: '1.25rem', fontWeight: 700 }}>
                         {formatCurrency(inv.valor)}
                       </span>

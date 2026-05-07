@@ -118,9 +118,9 @@ export default function Categories() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 page-header-flex">
         <h1 className="page-title" style={{ marginBottom: 0 }}>Gerenciar Categorias</h1>
-        <button onClick={() => handleOpenModal()} className="btn btn-primary">
+        <button onClick={() => handleOpenModal()} className="btn btn-primary mobile-full-btn">
           <PlusCircle size={20} /> Nova Categoria
         </button>
       </div>
@@ -128,7 +128,7 @@ export default function Categories() {
       <div className="dashboard-grid">
         {categorias.map(cat => (
           <div key={cat.id} className="col-span-4 card" style={{ display: 'flex', flexDirection: 'column' }}>
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex items-start justify-between mb-4 page-header-flex">
               <div className="flex items-center gap-2">
                 <span className="category-icon" style={{ backgroundColor: cat.cor + '20', color: cat.cor }}>
                   {cat.icone}
@@ -169,12 +169,12 @@ export default function Categories() {
                 <input type="text" required className="input-field" value={formData.nome} onChange={e => setFormData({...formData, nome: e.target.value})} placeholder="Ex: Alimentação" />
               </div>
               
-              <div className="input-group flex gap-4">
-                <div style={{ flex: 1 }}>
+              <div className="input-group page-header-flex gap-4">
+                <div style={{ flex: 1, minWidth: '120px' }}>
                   <label className="input-label">Ícone (Emoji)</label>
                   <input type="text" maxLength={2} className="input-field" value={formData.icone} onChange={e => setFormData({...formData, icone: e.target.value})} />
                 </div>
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 1, minWidth: '120px' }}>
                   <label className="input-label">Cor</label>
                   <input type="color" className="input-field" style={{ padding: '0.25rem', height: '42px' }} value={formData.cor} onChange={e => setFormData({...formData, cor: e.target.value})} />
                 </div>

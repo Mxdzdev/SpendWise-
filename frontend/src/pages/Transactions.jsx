@@ -210,12 +210,12 @@ export default function Transactions() {
   if (loading) return <div className="loading-overlay"><div className="spinner"></div></div>;
 
   return (
-    <div className="dashboard-grid h-full" style={{ height: 'calc(100vh - 4rem)' }}>
+    <div className="dashboard-grid h-screen-layout">
       {/* Transaction List Panel */}
-      <div className="col-span-8 card flex flex-col" style={{ height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-        <div className="flex items-center justify-between mb-4">
+      <div className="col-span-8 card flex flex-col panel-card">
+        <div className="flex items-center justify-between mb-4 page-header-flex">
           <h2 className="page-title" style={{ marginBottom: 0 }}>Histórico</h2>
-          <button onClick={handleOpenModal} className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
+          <button onClick={handleOpenModal} className="btn btn-primary mobile-full-btn" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
             <PlusCircle size={16} /> Nova Manual
           </button>
         </div>
@@ -242,7 +242,7 @@ export default function Transactions() {
       </div>
 
       {/* Smart Assistant / Chat Panel */}
-      <div className="col-span-4 card flex flex-col" style={{ height: '100%', padding: 0, display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
+      <div className="col-span-4 card flex flex-col chat-panel-card">
         <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', backgroundColor: 'var(--bg-secondary)', borderTopLeftRadius: 'var(--radius-lg)', borderTopRightRadius: 'var(--radius-lg)' }} className="flex items-center gap-2">
           <Bot className="text-accent-primary" />
           <h3 style={{ fontWeight: 600 }}>Registro Inteligente</h3>

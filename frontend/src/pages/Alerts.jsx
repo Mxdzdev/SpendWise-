@@ -50,7 +50,7 @@ export default function Alerts() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 page-header-flex">
         <div className="flex items-center gap-3">
           <Bell className="text-accent-primary" size={28} />
           <h1 className="page-title" style={{ marginBottom: 0 }}>Centro de Alertas</h1>
@@ -58,7 +58,7 @@ export default function Alerts() {
         {alertasPendentes.length > 0 && (
           <button 
             onClick={marcarTodosComoLidos}
-            className="btn btn-secondary flex items-center gap-2"
+            className="btn btn-secondary flex items-center gap-2 mobile-full-btn"
           >
             <CheckCheck size={18} /> Marcar todos como lidos
           </button>

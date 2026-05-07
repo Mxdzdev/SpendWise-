@@ -65,22 +65,16 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-10" style={{ position: 'relative', minHeight: '60px' }}>
-        {/* Logo no canto esquerdo */}
-        <img src="/logo.png" alt="SpendWise Logo" style={{ width: '42px', height: '42px', borderRadius: '10px', border: '1px solid var(--accent-primary)' }} />
+      <div className="dashboard-header mb-10">
+        <div className="dashboard-logo-container">
+          <img src="/logo.png" alt="SpendWise Logo" className="dashboard-logo" />
+        </div>
         
-        {/* Nome SpendWise centralizado no meio da tela */}
-        <div style={{ 
-          position: 'absolute', 
-          left: '50%', 
-          transform: 'translateX(-50%)',
-          textAlign: 'center'
-        }}>
-          <h1 className="page-title" style={{ marginBottom: 0, fontSize: '2.25rem' }}>SpendWise</h1>
+        <div className="dashboard-title-container">
+          <h1 className="page-title dashboard-title mb-0">SpendWise</h1>
         </div>
 
-        {/* Mês de Referência no canto direito */}
-        <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: 500 }}>
+        <div className="dashboard-ref">
           Ref: {resumo?.mes_ref}
         </div>
       </div>
