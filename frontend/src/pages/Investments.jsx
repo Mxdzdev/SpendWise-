@@ -113,9 +113,9 @@ export default function Investments() {
 
       {/* Hero Section: Total Patrimônio */}
       <div className="card mb-8" style={{ 
-        background: 'linear-gradient(135deg, var(--bg-secondary) 0%, rgba(0,230,118,0.1) 100%)',
+        background: 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--color-primary-light) 100%)',
         padding: '2.5rem',
-        border: '1px solid rgba(0,230,118,0.2)',
+        border: '1px solid var(--color-border)',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -127,7 +127,7 @@ export default function Investments() {
             </p>
           </div>
           <div className="flex flex-col items-end hero-icon-container">
-            <div style={{ backgroundColor: 'rgba(0,230,118,0.1)', color: 'var(--accent-primary)', padding: '1rem', borderRadius: '1rem' }}>
+            <div style={{ backgroundColor: 'var(--color-primary-light)', color: 'var(--accent-primary)', padding: '1rem', borderRadius: '1rem' }}>
               <TrendingUp size={48} />
             </div>
           </div>
@@ -142,15 +142,15 @@ export default function Investments() {
         {/* Row 1: Consultor Inteligente (Centralizado e Horizontal) */}
         <div className="col-span-12">
           <div className="card mb-8" style={{ border: '1px solid var(--border-color)', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', backgroundColor: 'rgba(0,230,118,0.05)', display: 'flex', alignItems: 'center', gap: 3 }}>
+            <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', backgroundColor: 'var(--color-primary-light)', display: 'flex', alignItems: 'center', gap: 3 }}>
               <Bot className="text-accent-primary" size={20} />
-              <h3 style={{ fontWeight: 600, fontSize: '1rem' }}>Consultor SpendWise IA</h3>
+              <h3 style={{ fontWeight: 600, fontSize: '1rem' }}>Consultor WiseIA</h3>
             </div>
             
             <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', minHeight: '200px' }}>
               {/* Mensagem do Bot 1 */}
               <div className="flex gap-3">
-                <div style={{ width: '32px', height: '32px', backgroundColor: 'rgba(0,230,118,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyCenter: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary-light)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
                   <Bot size={18} style={{ margin: 'auto' }} />
                 </div>
                 <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '0.75rem 1rem', borderRadius: '0 1rem 1rem 1rem', border: '1px solid var(--border-color)', maxWidth: '80%' }}>
@@ -183,13 +183,13 @@ export default function Investments() {
               {adviceStep >= 2 && (
                 <>
                   <div className="flex gap-3 justify-end">
-                    <div style={{ backgroundColor: 'var(--accent-primary)', color: '#000', padding: '0.75rem 1rem', borderRadius: '1rem 0 1rem 1rem', maxWidth: '80%', fontSize: '0.875rem', fontWeight: 600 }}>
+                    <div style={{ backgroundColor: 'var(--accent-primary)', color: '#fff', padding: '0.75rem 1rem', borderRadius: '1rem 0 1rem 1rem', maxWidth: '80%', fontSize: '0.875rem', fontWeight: 600 }}>
                       Quero investir {calcPercent}%!
                     </div>
                   </div>
 
                   <div className="flex gap-3">
-                    <div style={{ width: '32px', height: '32px', backgroundColor: 'rgba(0,230,118,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyCenter: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                    <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary-light)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
                       <Bot size={18} style={{ margin: 'auto' }} />
                     </div>
                     <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '0.75rem 1rem', borderRadius: '0 1rem 1rem 1rem', border: '1px solid var(--border-color)', maxWidth: '80%' }}>
@@ -226,13 +226,13 @@ export default function Investments() {
               {adviceStep >= 4 && (
                 <>
                   <div className="flex gap-3 justify-end">
-                    <div style={{ backgroundColor: 'var(--accent-primary)', color: '#000', padding: '0.75rem 1rem', borderRadius: '1rem 0 1rem 1rem', maxWidth: '80%', fontSize: '0.875rem', fontWeight: 600 }}>
+                    <div style={{ backgroundColor: 'var(--accent-primary)', color: '#fff', padding: '0.75rem 1rem', borderRadius: '1rem 0 1rem 1rem', maxWidth: '80%', fontSize: '0.875rem', fontWeight: 600 }}>
                       Será em {formData.tipo}.
                     </div>
                   </div>
 
                   <div className="flex gap-3">
-                    <div style={{ width: '32px', height: '32px', backgroundColor: 'rgba(0,230,118,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyCenter: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                    <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary-light)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
                       <Bot size={18} style={{ margin: 'auto' }} />
                     </div>
                     <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '0.75rem 1rem', borderRadius: '0 1rem 1rem 1rem', border: '1px solid var(--border-color)', maxWidth: '80%' }}>
@@ -260,10 +260,10 @@ export default function Investments() {
 
               {adviceStep === 3 && (
                 <div className="flex gap-3">
-                  <div style={{ width: '32px', height: '32px', backgroundColor: 'rgba(0,230,118,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyCenter: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                  <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary-light)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
                     <Bot size={18} style={{ margin: 'auto' }} />
                   </div>
-                  <div style={{ backgroundColor: 'rgba(0,230,118,0.05)', padding: '0.75rem 1rem', borderRadius: '0 1rem 1rem 1rem', border: '1px solid var(--accent-primary)', maxWidth: '80%' }}>
+                  <div style={{ backgroundColor: 'var(--color-primary-light)', padding: '0.75rem 1rem', borderRadius: '0 1rem 1rem 1rem', border: '1px solid var(--accent-primary)', maxWidth: '80%' }}>
                     <div className="flex items-center gap-2 text-success" style={{ fontWeight: 600, fontSize: '0.875rem' }}>
                       <CheckCircle2 size={16} /> Tudo pronto! Seu investimento foi registrado.
                     </div>
@@ -289,7 +289,7 @@ export default function Investments() {
                 {investimentos.map(inv => (
                   <div key={inv.id} className="transaction-item" style={{ padding: '1.25rem 0', borderBottom: '1px solid var(--border-color)' }}>
                     <div className="transaction-details">
-                      <div className="category-icon" style={{ backgroundColor: 'rgba(255,255,255,0.03)', width: '52px', height: '52px' }}>
+                      <div className="category-icon" style={{ backgroundColor: 'var(--color-background-soft)', width: '52px', height: '52px' }}>
                         <Landmark size={24} className="text-accent-primary" />
                       </div>
                       <div className="transaction-info">
@@ -322,7 +322,7 @@ export default function Investments() {
         <div className="col-span-4 flex flex-col gap-6">
           <div className="card" style={{ background: 'linear-gradient(to bottom right, var(--bg-secondary), transparent)', border: '1px solid var(--border-color)' }}>
             <div className="flex items-center gap-3 mb-4">
-              <div style={{ backgroundColor: 'rgba(0,230,118,0.1)', color: 'var(--accent-primary)', padding: '0.5rem', borderRadius: '0.5rem' }}>
+              <div style={{ backgroundColor: 'var(--color-primary-light)', color: 'var(--accent-primary)', padding: '0.5rem', borderRadius: '0.5rem' }}>
                 <Info size={18} />
               </div>
               <h4 style={{ fontWeight: 600 }}>Dica de Estratégia</h4>

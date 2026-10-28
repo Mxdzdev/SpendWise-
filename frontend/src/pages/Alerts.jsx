@@ -72,14 +72,14 @@ export default function Alerts() {
           {alertasPendentes.length > 0 ? (
             <div className="alert-stack">
               {alertasPendentes.map(alerta => (
-                <div key={alerta.id} className={`alert-card unread ${alerta.tipo === 'critico' ? 'critical' : 'warning'}`}>
+                <div key={alerta.id} className={`alert-card unread ${alerta.tipo_alerta === 'critico' ? 'critical' : 'warning'}`}>
                   <div className="alert-icon">
-                    {alerta.tipo === 'critico' ? <AlertOctagon size={24} /> : <AlertTriangle size={24} />}
+                    {alerta.tipo_alerta === 'critico' ? <AlertOctagon size={24} /> : <AlertTriangle size={24} />}
                   </div>
                   <div className="alert-content">
-                    <h4>{alerta.tipo === 'critico' ? 'Limite Excedido!' : 'Aviso de Orçamento'}</h4>
+                    <h4>{alerta.tipo_alerta === 'critico' ? 'Limite Excedido!' : 'Aviso de Orçamento'}</h4>
                     <p>{alerta.mensagem}</p>
-                    <span className="alert-date">{formatDate(alerta.data_criacao)}</span>
+                    <span className="alert-date">{formatDate(alerta.created_at)}</span>
                   </div>
                   <button 
                     className="alert-action"
@@ -112,7 +112,7 @@ export default function Alerts() {
                     </div>
                     <div className="alert-content">
                       <p>{alerta.mensagem}</p>
-                      <span className="alert-date">{formatDate(alerta.data_criacao)}</span>
+                      <span className="alert-date">{formatDate(alerta.created_at)}</span>
                     </div>
                   </div>
                 ))}
@@ -139,12 +139,12 @@ export default function Alerts() {
           transition: all 0.2s ease;
         }
         .alert-card.unread.warning {
-          border-left: 4px solid #facc15;
-          background: linear-gradient(90deg, rgba(250, 204, 21, 0.05) 0%, transparent 100%);
+          border-left: 4px solid var(--warning);
+          background: linear-gradient(90deg, rgba(255, 234, 0, 0.05) 0%, transparent 100%);
         }
         .alert-card.unread.critical {
-          border-left: 4px solid #ef4444;
-          background: linear-gradient(90deg, rgba(239, 68, 68, 0.05) 0%, transparent 100%);
+          border-left: 4px solid var(--color-error);
+          background: linear-gradient(90deg, rgba(255, 51, 102, 0.05) 0%, transparent 100%);
         }
         .alert-card.read {
           opacity: 0.6;
@@ -153,8 +153,8 @@ export default function Alerts() {
         .alert-icon {
           flex-shrink: 0;
         }
-        .alert-card.warning .alert-icon { color: #facc15; }
-        .alert-card.critical .alert-icon { color: #ef4444; }
+        .alert-card.warning .alert-icon { color: var(--warning); }
+        .alert-card.critical .alert-icon { color: var(--color-error); }
         
         .alert-content {
           flex: 1;
@@ -186,7 +186,7 @@ export default function Alerts() {
           transition: all 0.2s;
         }
         .alert-action:hover {
-          background-color: rgba(255, 255, 255, 0.05);
+          background-color: var(--color-background-soft);
           color: var(--accent-primary);
           transform: scale(1.1);
         }

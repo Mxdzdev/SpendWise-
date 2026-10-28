@@ -57,40 +57,35 @@ export default function Dashboard() {
 
   const chartOptions = {
     plugins: {
-      legend: { position: 'right', labels: { color: '#f8fafc' } }
+      legend: { position: 'right', labels: { color: '#aaaaaa' } }
     },
     cutout: '70%',
     maintainAspectRatio: false
   };
 
   return (
-    <div>
+    <div className="dashboard-shell">
       <div className="dashboard-header mb-10">
         <div className="dashboard-logo-container">
-          <img src="/logo.png" alt="SpendWise Logo" className="dashboard-logo" />
+          <img src="/logo.png" alt="WiseIA" className="dashboard-logo" />
         </div>
-        
         <div className="dashboard-title-container">
-          <h1 className="page-title dashboard-title mb-0">SpendWise</h1>
+          <h1 className="page-title dashboard-title mb-0">WiseIA</h1>
         </div>
-
-        <div className="dashboard-ref">
-          Ref: {resumo?.mes_ref}
-        </div>
+        <div className="dashboard-ref">Ref: {resumo?.mes_ref}</div>
       </div>
 
       {alertas.length > 0 && (
         <div className="alert-banner alert-warning">
           <AlertCircle size={24} />
           <div>
-            <strong>Atenção!</strong> Você tem {alertas.length} categoria(s) próximas ou acima do limite de gastos. 
+            <strong>Atenção!</strong> Você tem {alertas.length} categoria(s) próximas ou acima do limite de gastos.
             Verifique seus alertas.
           </div>
         </div>
       )}
 
       <div className="dashboard-grid">
-        {/* KPI Cards */}
         <div className="col-span-4 card metric-card clickable-card" onClick={() => navigate('/transactions')}>
           <div className="metric-info">
             <h3>Receitas do Mês</h3>
@@ -127,33 +122,30 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Charts & Lists */}
-        <div className="col-span-8 card">
-          <h3 style={{ marginBottom: '1.5rem', fontWeight: 600 }}>Gastos por Categoria</h3>
-          <div style={{ height: '300px' }}>
+        <div className="col-span-8 card chart-card">
+          <h3 className="panel-title">Gastos por Categoria</h3>
+          <div className="chart-wrap">
             {gastosCategoria.length > 0 ? (
               <Doughnut data={chartData} options={chartOptions} />
             ) : (
-              <div className="flex items-center justify-center" style={{ height: '100%', color: 'var(--text-muted)' }}>
-                Nenhum dado de despesa no mês atual
-              </div>
+              <div className="empty-state">Nenhum dado de despesa no mês atual</div>
             )}
           </div>
         </div>
 
-        <div className="col-span-4 card">
-          <h3 style={{ marginBottom: '1.5rem', fontWeight: 600 }}>Últimas Transações</h3>
+        <div className="col-span-4 card transactions-card">
+          <h3 className="panel-title">Últimas Transações</h3>
           <div className="transaction-list">
             {transacoes.length > 0 ? (
               transacoes.map((t) => (
-                <div key={t.id} className="transaction-item" style={{ padding: '0.75rem', border: 'none', borderBottom: '1px solid var(--border-color)', borderRadius: 0, backgroundColor: 'transparent' }}>
+                <div key={t.id} className="transaction-item" style={{ padding: '0.75rem 0', border: 'none', borderBottom: '1px solid var(--color-border)', borderRadius: 0, backgroundColor: 'transparent' }}>
                   <div className="transaction-details">
                     <div className="transaction-info">
-                      <h4 style={{ fontSize: '0.875rem' }}>{t.descricao}</h4>
-                      <p style={{ fontSize: '0.75rem' }}>{t.categoria_nome} • {formatDate(t.data)}</p>
+                      <h4>{t.descricao}</h4>
+                      <p>{t.categoria_nome} • {formatDate(t.data)}</p>
                     </div>
                   </div>
-                  <div className={`transaction-amount ${t.tipo === 'receita' ? 'income' : ''}`} style={{ fontSize: '1rem' }}>
+                  <div className={`transaction-amount ${t.tipo === 'receita' ? 'income' : ''}`}>
                     {t.tipo === 'receita' ? '+' : '-'}{formatCurrency(t.valor)}
                   </div>
                 </div>
