@@ -33,7 +33,8 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       return { 
         success: false, 
-        error: error.response?.data?.erro || 'Erro ao realizar login' 
+        error: error.response?.data?.erro
+          || 'Não foi possível conectar à API. Verifique se o servidor está em execução e tente novamente.'
       };
     }
   };

@@ -20,7 +20,7 @@ export default function Sidebar() {
         }
       } catch (error) {
         if (isMounted) {
-          console.error('Failed to fetch alerts', error);
+          console.error('Falha ao carregar os alertas', error);
         }
       }
     };
@@ -32,17 +32,17 @@ export default function Sidebar() {
   }, []);
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/transactions', label: 'Transactions', icon: Receipt },
-    { path: '/categories', label: 'Categories', icon: Tag },
-    { path: '/investments', label: 'Investments', icon: Landmark },
-    { path: '/alerts', label: 'Alerts', icon: Bell, badge: alertsCount },
+    { path: '/', label: 'Visão geral', icon: LayoutDashboard },
+    { path: '/transactions', label: 'Transações', icon: Receipt },
+    { path: '/categories', label: 'Categorias', icon: Tag },
+    { path: '/investments', label: 'Investimentos', icon: Landmark },
+    { path: '/alerts', label: 'Alertas', icon: Bell, badge: alertsCount },
   ];
 
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <img src="/logo.png" alt="WiseIA Logo" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
+        <img src="/logo.png" alt="Logotipo da WiseIA" style={{ width: '32px', height: '32px', borderRadius: '8px' }} />
         <span style={{ fontWeight: 'bold' }}>WiseIA</span>
       </div>
 
@@ -93,7 +93,7 @@ export default function Sidebar() {
           style={{ width: '100%', color: 'var(--danger)' }}
         >
           <LogOut size={20} />
-          <span>Logout</span>
+          <span>Sair</span>
         </button>
       </div>
     </aside>

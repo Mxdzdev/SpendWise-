@@ -72,7 +72,7 @@ export default function Dashboard() {
         <div className="dashboard-title-container">
           <h1 className="page-title dashboard-title mb-0">WiseIA</h1>
         </div>
-        <div className="dashboard-ref">Ref: {resumo?.mes_ref}</div>
+        <div className="dashboard-ref">Referência: {resumo?.mes_ref}</div>
       </div>
 
       {alertas.length > 0 && (
@@ -101,7 +101,7 @@ export default function Dashboard() {
             <h3>Despesas do Mês</h3>
             <p className="value text-danger">{formatCurrency(resumo?.total_despesas || 0)}</p>
             <div className={`metric-trend ${resumo?.comparativo_mes_anterior?.tendencia === 'alta' ? 'up' : 'down'}`}>
-              <span>{resumo?.comparativo_mes_anterior?.variacao_percentual}% vs mês anterior</span>
+              <span>{resumo?.comparativo_mes_anterior?.variacao_percentual}% em relação ao mês anterior</span>
             </div>
           </div>
           <div className="metric-icon expense">

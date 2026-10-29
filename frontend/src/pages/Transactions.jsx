@@ -121,7 +121,7 @@ export default function Transactions() {
 
       // Format description: remove "gastei X em"
       descricao = text.replace(/(gastei|paguei|recebi|ganhei)\s*(r\$)?\s*\d+[\.,]?\d*\s*(com|no|na|em|de)?/i, '').trim();
-      if (!descricao) descricao = categoriaMatched ? categoriaMatched.nome : 'Transação Rápida';
+      if (!descricao) descricao = categoriaMatched ? categoriaMatched.nome : 'Transação rápida';
       
       // Create via API
       try {
@@ -140,7 +140,7 @@ export default function Transactions() {
           id: Date.now() + 1, 
           sender: 'bot', 
           type: 'success',
-          text: `Registrado: ${formatCurrency(valor)} em ${categoriaMatched.nome}.`,
+          text: `Lançamento registrado: ${formatCurrency(valor)} em ${categoriaMatched.nome}.`,
           data: response.data.transacao
         }]);
 
@@ -150,7 +150,7 @@ export default function Transactions() {
             id: Date.now() + 2, 
             sender: 'bot', 
             type: 'alert',
-            text: `⚠️ Alerta: A categoria ${categoriaMatched.nome} atingiu ${response.data.alerta.percentual}% do limite!`,
+            text: `⚠️ Alerta: a categoria ${categoriaMatched.nome} atingiu ${response.data.alerta.percentual}% do limite!`,
           }]);
         }
 
@@ -211,12 +211,12 @@ export default function Transactions() {
 
   return (
     <div className="dashboard-grid h-screen-layout">
-      {/* Transaction List Panel */}
+      {/* Lista de transações */}
       <div className="col-span-8 card flex flex-col panel-card">
         <div className="flex items-center justify-between mb-4 page-header-flex">
           <h2 className="page-title" style={{ marginBottom: 0 }}>Histórico</h2>
           <button onClick={handleOpenModal} className="btn btn-primary mobile-full-btn" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
-            <PlusCircle size={16} /> Nova Manual
+            <PlusCircle size={16} /> Adicionar transação
           </button>
         </div>
 
@@ -233,15 +233,15 @@ export default function Transactions() {
                 <span className={`transaction-amount ${t.tipo === 'receita' ? 'income' : ''}`} style={{ fontSize: '1rem', minWidth: '100px', textAlign: 'right' }}>
                   {t.tipo === 'receita' ? '+' : '-'}{formatCurrency(t.valor)}
                 </span>
-                <button onClick={() => handleEdit(t)} style={{ color: 'var(--text-secondary)' }}><Edit2 size={16} /></button>
-                <button onClick={() => handleDelete(t.id)} className="text-danger"><Trash2 size={16} /></button>
+                <button onClick={() => handleEdit(t)} style={{ color: 'var(--text-secondary)' }} title="Editar transação" aria-label="Editar transação"><Edit2 size={16} /></button>
+                <button onClick={() => handleDelete(t.id)} className="text-danger" title="Excluir transação" aria-label="Excluir transação"><Trash2 size={16} /></button>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Smart Assistant / Chat Panel */}
+      {/* Assistente de registro inteligente */}
       <div className="col-span-4 card flex flex-col chat-panel-card">
         <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', backgroundColor: 'var(--bg-secondary)', borderTopLeftRadius: 'var(--radius-lg)', borderTopRightRadius: 'var(--radius-lg)' }} className="flex items-center gap-2">
           <Bot className="text-accent-primary" />
@@ -287,7 +287,7 @@ export default function Transactions() {
         </form>
       </div>
 
-      {/* Manual Add/Edit Modal */}
+      {/* Formulário de inclusão e edição */}
       {showModal && (
         <div className="loading-overlay" style={{ alignItems: 'center' }}>
           <div className="card" style={{ width: '100%', maxWidth: '400px', backgroundColor: 'var(--bg-primary)' }}>

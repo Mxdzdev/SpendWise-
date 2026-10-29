@@ -83,7 +83,7 @@ export default function Categories() {
     }
   };
 
-  // Merge categories with their current expenses to show a progress bar
+  // Combina as categorias com os gastos do mês para exibir o progresso.
   const renderProgressBar = (cat) => {
     if (!cat.limite_mensal || cat.tipo === 'receita') return null;
 
@@ -139,8 +139,8 @@ export default function Categories() {
                 </div>
               </div>
               <div className="flex gap-2">
-                <button onClick={() => handleOpenModal(cat)} style={{ color: 'var(--text-secondary)' }}><Edit2 size={16} /></button>
-                <button onClick={() => handleDelete(cat.id)} className="text-danger"><Trash2 size={16} /></button>
+                <button onClick={() => handleOpenModal(cat)} style={{ color: 'var(--text-secondary)' }} title="Editar categoria" aria-label="Editar categoria"><Edit2 size={16} /></button>
+                <button onClick={() => handleDelete(cat.id)} className="text-danger" title="Excluir categoria" aria-label="Excluir categoria"><Trash2 size={16} /></button>
               </div>
             </div>
 
@@ -149,7 +149,7 @@ export default function Categories() {
                 renderProgressBar(cat)
               ) : (
                 <p className="text-muted" style={{ fontSize: '0.875rem', marginTop: '0.75rem' }}>
-                  {cat.tipo === 'receita' ? 'Categoria de Receita (Ganhos)' : 'Sem limite mensal configurado'}
+                  {cat.tipo === 'receita' ? 'Categoria de receita (ganhos)' : 'Nenhum limite mensal definido'}
                 </p>
               )}
             </div>

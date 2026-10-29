@@ -111,7 +111,7 @@ export default function Investments() {
         </button>
       </div>
 
-      {/* Hero Section: Total Patrimônio */}
+      {/* Patrimônio total */}
       <div className="card mb-8" style={{ 
         background: 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--color-primary-light) 100%)',
         padding: '2.5rem',
@@ -274,7 +274,7 @@ export default function Investments() {
           </div>
         </div>
 
-        {/* Row 2: Lista de Posições e Dica */}
+        {/* Carteira de investimentos e dicas */}
         <div className="col-span-8">
           <div className="card h-full">
             <div className="mb-6">
@@ -294,14 +294,14 @@ export default function Investments() {
                       </div>
                       <div className="transaction-info">
                         <h4 style={{ fontSize: '1.125rem', fontWeight: 600 }}>{inv.banco}</h4>
-                        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>{inv.tipo} • Aporte em {formatDate(inv.data)}</p>
+                        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>{inv.tipo} • Aplicado em {formatDate(inv.data)}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 transaction-actions">
                       <span className="transaction-amount" style={{ color: 'var(--accent-primary)', fontSize: '1.25rem', fontWeight: 700 }}>
                         {formatCurrency(inv.valor)}
                       </span>
-                      <button onClick={() => handleDelete(inv.id)} className="text-danger hover:opacity-70 transition-opacity p-2">
+                      <button onClick={() => handleDelete(inv.id)} className="text-danger hover:opacity-70 transition-opacity p-2" title="Excluir investimento" aria-label="Excluir investimento">
                         <Trash2 size={20} />
                       </button>
                     </div>
